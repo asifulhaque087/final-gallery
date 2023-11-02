@@ -29,6 +29,7 @@ import { Photo } from '../roots';
 export const Home = () => {
   const [items, setItems] = useState(photos);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [selectedIdxs, setSelectedIdxs] = useState<number[]>([]);
 
   // const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
@@ -39,42 +40,51 @@ export const Home = () => {
   );
 
   return (
-    <DndContext
-      sensors={sensors}
-      collisionDetection={closestCenter}
-      onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}
-      onDragCancel={handleDragCancel}
-      measuring={{
-        droppable: {
-          strategy: MeasuringStrategy.Always,
-        },
-      }}
-    >
-      <SortableContext items={items} strategy={rectSortingStrategy}>
-        <Grid>
-          {items.map((url, index) => (
-            <SortablePhoto
-              key={url}
-              url={url}
-              index={index}
-              removePhoto={removePhoto}
-            />
-          ))}
-        </Grid>
-      </SortableContext>
+    <div>
+      <h1>selected items total is {selectedIdxs.length} </h1>
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        onDragCancel={handleDragCancel}
+        measuring={{
+          droppable: {
+            strategy: MeasuringStrategy.Always,
+          },
+        }}
+      >
+        <SortableContext items={items} strategy={rectSortingStrategy}>
+          <Grid>
+            {items.map((url, index) => (
+              <SortablePhoto
+                key={url}
+                url={url}
+                index={index}
+                selectPhotos={selectPhotos}
+                isSelected={selectedIdxs.includes(index)}
+              />
+            ))}
+          </Grid>
+        </SortableContext>
 
-      <DragOverlay adjustScale={true}>
-        {activeId ? (
-          <Photo url={activeId} index={items.indexOf(activeId)} />
-        ) : null}
-      </DragOverlay>
-    </DndContext>
+        <DragOverlay adjustScale={true}>
+          {activeId ? (
+            <Photo url={activeId} index={items.indexOf(activeId)} />
+          ) : null}
+        </DragOverlay>
+      </DndContext>
+    </div>
   );
 
-  function removePhoto(idx: number) {
-    const fItems = items.filter((item, i) => i != idx);
-    setItems(fItems);
+  function selectPhotos(idx: number, isSelected: boolean) {
+    if (!isSelected) {
+      setSelectedIdxs([...selectedIdxs, idx]);
+      return;
+    }
+
+    const filItems = selectedIdxs.filter((index) => index !== idx);
+    setSelectedIdxs(filItems);
   }
 
   function handleDragStart(event: DragStartEvent) {
@@ -98,7 +108,6 @@ export const Home = () => {
   }
 
   function handleDragCancel() {
-    // setIsDragging(false);
     setActiveId(null);
   }
 };
