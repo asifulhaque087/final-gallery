@@ -1,10 +1,10 @@
 'use client';
 
-import { ISortablePhotoProps } from '@src/types/compounds';
+import { IPhotoProps } from '@src/types/roots';
 import React, { forwardRef, CSSProperties, RefObject } from 'react';
 
-export const Photo = forwardRef<HTMLDivElement, ISortablePhotoProps>(
-  ({ url, index, faded, style, ...props }, ref) => {
+export const Photo = forwardRef<HTMLDivElement, IPhotoProps>(
+  ({ url, index, faded, style, removePhoto, ...props }, ref) => {
     const inlineStyles: CSSProperties = {
       opacity: faded ? '0.2' : '1',
       transformOrigin: '0 0',
@@ -23,7 +23,11 @@ export const Photo = forwardRef<HTMLDivElement, ISortablePhotoProps>(
         ref={ref as RefObject<HTMLDivElement>}
         style={inlineStyles}
         {...props}
-      />
+        onClick={() => {
+          console.log('hello world ');
+          if (removePhoto) removePhoto(index);
+        }}
+      ></div>
     );
   }
 );
