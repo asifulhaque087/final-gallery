@@ -1,10 +1,3 @@
-import { CSSProperties } from 'react';
+import { ISortablePhotoProps } from '../compounds';
 
-// export interface PhotoProps extends HTMLProps<HTMLDivElement> {
-export interface IPhotoProps {
-  url: string;
-  // url: number;
-  index: number;
-  faded?: boolean;
-  style?: CSSProperties;
-}
+export interface IPhotoProps extends ISortablePhotoProps {}
