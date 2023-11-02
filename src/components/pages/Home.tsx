@@ -52,7 +52,7 @@ export const Home = () => {
       }}
     >
       <SortableContext items={items} strategy={rectSortingStrategy}>
-        <Grid columns={4}>
+        <Grid>
           {items.map((url, index) => (
             <SortablePhoto
               key={url}
