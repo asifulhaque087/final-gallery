@@ -27,14 +27,17 @@ export const Photo = forwardRef<HTMLDivElement, IPhotoProps>(
         {...props}
         onClick={() => {
           console.log('hello world ');
-          if (selectPhotos) selectPhotos(index, isSelected ? true : false);
+          // if (selectPhotos) selectPhotos(index, isSelected ? true : false);
+          if (selectPhotos) selectPhotos(url, isSelected ? true : false);
         }}
       >
         <Image
           src={url}
-          width={513}
-          height={513}
-          layout="responsive"
+          // width={513}
+          // height={513}
+          // layout="responsive"
+          sizes="500px"
+          fill
           alt="..."
         />
         <div

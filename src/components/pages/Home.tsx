@@ -29,7 +29,8 @@ import { Photo } from '../roots';
 export const Home = () => {
   const [items, setItems] = useState(photos);
   const [activeId, setActiveId] = useState<string | null>(null);
-  const [selectedIdxs, setSelectedIdxs] = useState<number[]>([]);
+  // const [selectedIdxs, setSelectedIdxs] = useState<number[]>([]);
+  const [selectedIdxs, setSelectedIdxs] = useState<string[]>([]);
 
   // const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
@@ -42,6 +43,7 @@ export const Home = () => {
   return (
     <div>
       <h1>selected items total is {selectedIdxs.length} </h1>
+      <button onClick={() => setSelectedIdxs([])}>delete</button>
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
@@ -62,7 +64,8 @@ export const Home = () => {
                 url={url}
                 index={index}
                 selectPhotos={selectPhotos}
-                isSelected={selectedIdxs.includes(index)}
+                // isSelected={selectedIdxs.includes(index)}
+                isSelected={selectedIdxs.includes(url)}
               />
             ))}
           </Grid>
@@ -77,13 +80,18 @@ export const Home = () => {
     </div>
   );
 
-  function selectPhotos(idx: number, isSelected: boolean) {
+  // function selectPhotos(idx: number, isSelected: boolean) {
+  function selectPhotos(url: string, isSelected: boolean) {
     if (!isSelected) {
-      setSelectedIdxs([...selectedIdxs, idx]);
+      // setSelectedIdxs([...selectedIdxs, idx]);
+      setSelectedIdxs([...selectedIdxs, url]);
       return;
     }
 
-    const filItems = selectedIdxs.filter((index) => index !== idx);
+    // const filItems = selectedIdxs.filter((index) => index !== idx);
+    // setSelectedIdxs(filItems);
+
+    const filItems = selectedIdxs.filter((item) => item !== url);
     setSelectedIdxs(filItems);
   }
 
