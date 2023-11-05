@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import { IPhotoProps } from '@src/types/roots';
-import Image from 'next/image';
 import React, { forwardRef, CSSProperties, RefObject } from 'react';
+
+import { IPhotoProps } from '@src/types/roots';
+import { BiCheck } from 'react-icons/bi';
 
 export const Photo = forwardRef<HTMLDivElement, IPhotoProps>(
   ({ url, index, faded, style, isSelected, selectPhotos, ...props }, ref) => {
@@ -69,7 +70,7 @@ export const Photo = forwardRef<HTMLDivElement, IPhotoProps>(
               isSelected ? 'bg-[#305df6]' : 'bg-white'
             }`}
           >
-            ✓
+            <BiCheck size={15} className="text-white" />
           </div>
         </div>
       </div>
