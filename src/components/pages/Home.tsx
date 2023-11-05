@@ -23,7 +23,7 @@ import {
 } from '@dnd-kit/sortable';
 
 import photos from '@src/photos.json';
-import { Grid, SortablePhoto } from '../compounds';
+import { Grid, Header, SortablePhoto } from '../compounds';
 import { Photo } from '../roots';
 
 export const Home = () => {
@@ -41,9 +41,8 @@ export const Home = () => {
   );
 
   return (
-    <div>
-      <h1>selected items total is {selectedIdxs.length} </h1>
-      <button onClick={() => setSelectedIdxs([])}>delete</button>
+    <div className="border rounded-t">
+      <Header totalItems={selectedIdxs.length} removePhotos={removePhotos} />
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
@@ -80,16 +79,17 @@ export const Home = () => {
     </div>
   );
 
-  // function selectPhotos(idx: number, isSelected: boolean) {
+  function removePhotos() {
+    const filItems = items.filter((item) => !selectedIdxs.includes(item));
+    setItems(filItems);
+    setSelectedIdxs([]);
+  }
+
   function selectPhotos(url: string, isSelected: boolean) {
     if (!isSelected) {
-      // setSelectedIdxs([...selectedIdxs, idx]);
       setSelectedIdxs([...selectedIdxs, url]);
       return;
     }
-
-    // const filItems = selectedIdxs.filter((index) => index !== idx);
-    // setSelectedIdxs(filItems);
 
     const filItems = selectedIdxs.filter((item) => item !== url);
     setSelectedIdxs(filItems);
