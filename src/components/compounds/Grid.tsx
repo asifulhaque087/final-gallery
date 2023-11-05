@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { IGrid } from '@src/types/compounds';
 
 import { BsImage } from 'react-icons/bs';
+
 
 export const Grid = ({ children }: IGrid) => {
   return (
@@ -32,12 +34,31 @@ export const Grid = ({ children }: IGrid) => {
       // }}
     >
       {children}
-      <div className="grid place-items-center rounded-md border border-[#d3d3d3] border-dashed bg-[#f9f8f8] cursor-pointer">
+
+      <div className="relative overflow-hidden rounded-md border border-[#d3d3d3] border-dashed bg-[#f9f8f8] cursor-pointer">
+        <img
+          className="w-[100%]  h-[100%] object-cover object-center "
+          alt="feature product"
+          src={'/images/image-1.webp'}
+        />
+        <div className="absolute top-0 bottom-0 left-0 right-0">
+          <div className="w-full h-full grid place-items-center  bg-[#f9f8f8]">
+            <div className="grid place-items-center gap-y-[18px]">
+              <BsImage size={18} />
+              <span className="text-[16px] capitalize font-[500]">
+                Add images
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="grid place-items-center rounded-md border border-[#d3d3d3] border-dashed bg-[#f9f8f8] cursor-pointer">
         <div className="grid place-items-center gap-y-[18px]">
           <BsImage size={18} />
           <span className="text-[16px] capitalize font-[500]">Add images</span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
