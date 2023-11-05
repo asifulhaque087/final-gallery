@@ -7,7 +7,7 @@ export const Grid = ({ children }: IGrid) => {
     <div
       // className=""
       // className="grid gap-[10px] p-[10px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
-      className="mx-auto p-[20px] grid gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
+      className="mx-auto p-[40px] grid gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
       // className="flex gap-[10px] p-[10px] flex-wrap"
 
       // className="grid gap-[10px] p-[10px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
