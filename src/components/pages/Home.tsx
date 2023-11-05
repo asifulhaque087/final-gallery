@@ -41,7 +41,7 @@ export const Home = () => {
   );
 
   return (
-    <div className="border rounded-t-md bg-white">
+    <div className="border rounded-t-md bg-[#fefefe]">
       <Header totalItems={selectedIdxs.length} removePhotos={removePhotos} />
       <DndContext
         sensors={sensors}

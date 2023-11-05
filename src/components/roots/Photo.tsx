@@ -25,7 +25,7 @@ export const Photo = forwardRef<HTMLDivElement, IPhotoProps>(
 
     return (
       <div
-        className={`overflow-hidden relative rounded border-2`}
+        className={`overflow-hidden relative rounded-md border border-[#d3d3d3] bg-[#f9f8f8]`}
         ref={ref as RefObject<HTMLDivElement>}
         style={inlineStyles}
         {...props}
@@ -58,9 +58,15 @@ export const Photo = forwardRef<HTMLDivElement, IPhotoProps>(
               : 'opacity-0 hover:opacity-100 hover:bg-black/60'
           }  transition-all p-[20px]`}
         >
-          <div
+          {/* <div
             className={`grid place-items-center text-white text-[10px] h-[20px] w-[15px] rounded ${
               isSelected ? 'bg-[blue]' : 'bg-white'
+            }`}
+          > */}
+
+          <div
+            className={`grid place-items-center text-white text-[10px] h-[20px] w-[20px] rounded ${
+              isSelected ? 'bg-[#305df6]' : 'bg-white'
             }`}
           >
             ✓
