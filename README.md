@@ -1,7 +1,7 @@
 # Final Gallery Application
 
-- livelink : [final-gallery](https://final-gallery.netlify.app/)
-- github : [final-gallery](https://github.com/asifulhaque087/final-gallery)
+- livelink : [https://final-gallery.netlify.app/](https://final-gallery.netlify.app/)
+- github : [https://github.com/asifulhaque087/final-gallery](https://github.com/asifulhaque087/final-gallery)
 
 ## Tech Stacks
 
