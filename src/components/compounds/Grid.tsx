@@ -32,7 +32,7 @@ export const Grid = ({ children }: IGrid) => {
       // }}
     >
       {children}
-      <div className="grid place-items-center rounded-md border border-[#d3d3d3] border-dashed bg-[#f9f8f8]">
+      <div className="grid place-items-center rounded-md border border-[#d3d3d3] border-dashed bg-[#f9f8f8] cursor-pointer">
         <div className="grid place-items-center gap-y-[18px]">
           <BsImage size={18} />
           <span className="text-[16px] capitalize font-[500]">Add images</span>

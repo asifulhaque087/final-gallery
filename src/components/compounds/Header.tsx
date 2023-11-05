@@ -13,7 +13,7 @@ export const Header = ({ totalItems, removePhotos }: IHeader) => {
             selected
           </h1>
           <span
-            className="text-[#f15151] text-[16px] font-[600]"
+            className="text-[#f15151] text-[16px] font-[600] cursor-pointer"
             onClick={() => removePhotos()}
           >
             Delete {totalItems === 1 ? ' file ' : ' files '}
