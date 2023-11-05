@@ -2,6 +2,8 @@
 
 import { IGrid } from '@src/types/compounds';
 
+import { BsImage } from 'react-icons/bs';
+
 export const Grid = ({ children }: IGrid) => {
   return (
     <div
@@ -30,6 +32,12 @@ export const Grid = ({ children }: IGrid) => {
       // }}
     >
       {children}
+      <div className="grid place-items-center rounded-md border border-[#d3d3d3] border-dashed bg-[#f9f8f8]">
+        <div className="grid place-items-center gap-y-[18px]">
+          <BsImage size={18} />
+          <span className="text-[16px] capitalize font-[500]">Add images</span>
+        </div>
+      </div>
     </div>
   );
 };
