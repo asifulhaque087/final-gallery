@@ -12,7 +12,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const Wrapper = () => {
-  return <Home />;
+  return (
+    <div className="p-[3%]">
+      <Home />
+    </div>
+  );
 };
 
 export const Primary: Story = {

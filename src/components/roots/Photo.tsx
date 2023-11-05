@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { IPhotoProps } from '@src/types/roots';
@@ -9,7 +10,10 @@ export const Photo = forwardRef<HTMLDivElement, IPhotoProps>(
     const inlineStyles: CSSProperties = {
       opacity: faded ? '0.2' : '1',
       transformOrigin: '0 0',
-      height: index === 0 ? 410 : 200,
+      // height: index === 0 ? 'auto' : 200,
+      // height: 'auto',
+
+      // height: index === 0 ? 410 : 200,
       gridRowStart: index === 0 ? 'span 2' : undefined,
       gridColumnStart: index === 0 ? 'span 2' : undefined,
       // backgroundImage: `url("${url}")`,
@@ -21,25 +25,32 @@ export const Photo = forwardRef<HTMLDivElement, IPhotoProps>(
 
     return (
       <div
-        className={`overflow-hidden relative`}
+        className={`overflow-hidden relative rounded border-2`}
         ref={ref as RefObject<HTMLDivElement>}
         style={inlineStyles}
         {...props}
         onClick={() => {
-          console.log('hello world ');
+          console.log('hello world');
           // if (selectPhotos) selectPhotos(index, isSelected ? true : false);
           if (selectPhotos) selectPhotos(url, isSelected ? true : false);
         }}
       >
-        <Image
+        {/* <Image src={url} fill style={{ objectFit: 'cover' }} alt="product" /> */}
+        <img
+          className="w-[100%]  h-[100%] object-cover object-center"
+          alt="feature product"
+          src={url}
+        />
+        {/* <Image
           src={url}
           // width={513}
           // height={513}
           // layout="responsive"
-          sizes="500px"
+          sizes="1200px"
           fill
+          objectFit="cover"
           alt="..."
-        />
+        /> */}
         <div
           className={`absolute top-0 bottom-0 left-0 right-0  ${
             isSelected
