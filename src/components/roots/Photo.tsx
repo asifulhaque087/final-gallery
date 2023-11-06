@@ -12,6 +12,7 @@ export const Photo = forwardRef<HTMLDivElement, IPhotoProps>(
   ({ url, index, faded, style, isSelected, selectPhotos, ...props }, ref) => {
     // Custom styles for photo
     const inlineStyles: CSSProperties = {
+      touchAction: 'none',
       opacity: faded ? '0.2' : '1',
       transformOrigin: '0 0',
       gridRowStart: index === 0 ? 'span 2' : undefined,
