@@ -5,13 +5,14 @@ import { IGrid } from '@src/types/compounds';
 
 import { BsImage } from 'react-icons/bs';
 
-
 export const Grid = ({ children }: IGrid) => {
   return (
     <div
       // className=""
       // className="grid gap-[10px] p-[10px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
-      className="mx-auto p-[40px] grid gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
+      // className="mx-auto p-[40px] grid gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
+
+      className="mx-auto p-[20px] sm:p-[40px] grid gap-[10px] sm:gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
       // className="flex gap-[10px] p-[10px] flex-wrap"
 
       // className="grid gap-[10px] p-[10px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
@@ -45,7 +46,7 @@ export const Grid = ({ children }: IGrid) => {
           <div className="w-full h-full grid place-items-center  bg-[#f9f8f8]">
             <div className="grid place-items-center gap-y-[18px]">
               <BsImage size={18} />
-              <span className="text-[16px] capitalize font-[500]">
+              <span className="text-[12px] sm:text-[16px] capitalize font-[500]">
                 Add images
               </span>
             </div>
