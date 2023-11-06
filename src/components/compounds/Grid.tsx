@@ -1,39 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import { IGrid } from '@src/types/compounds';
-
+// ** External imports
 import { BsImage } from 'react-icons/bs';
+
+// ** Internal imports
+import { IGrid } from '@src/types/compounds';
 
 export const Grid = ({ children }: IGrid) => {
   return (
-    <div
-      // className=""
-      // className="grid gap-[10px] p-[10px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
-      // className="mx-auto p-[40px] grid gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
-
-      className="mx-auto p-[20px] sm:p-[40px] grid gap-[10px] sm:gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
-      // className="flex gap-[10px] p-[10px] flex-wrap"
-
-      // className="grid gap-[10px] p-[10px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5"
-
-      // style={{
-      //   display: 'grid',
-      //   gridTemplateColumns: `repeat(${columns}, 1fr)`,
-      //   gridGap: 10,
-      //   padding: 10,
-      // }}
-
-      // style={{
-      //   display: 'grid',
-      //   // gridTemplateColumns: `repeat(${5}, 1fr)`,
-      //   // gridTemplateColumns: `repeat(${5}, 200px)`,
-      //   gridTemplateColumns: `repeat(auto-fit, minMax(200px, 1fr))`,
-      //   gridTemplateRows: '200px',
-      //   gridGap: 10,
-      //   // padding: 10,
-      // }}
-    >
+    <div className="mx-auto p-[20px] sm:p-[40px] grid gap-[10px] sm:gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
       {children}
 
       <div className="relative overflow-hidden rounded-md border border-[#d3d3d3] border-dashed bg-[#f9f8f8] cursor-pointer">
@@ -53,13 +29,6 @@ export const Grid = ({ children }: IGrid) => {
           </div>
         </div>
       </div>
-
-      {/* <div className="grid place-items-center rounded-md border border-[#d3d3d3] border-dashed bg-[#f9f8f8] cursor-pointer">
-        <div className="grid place-items-center gap-y-[18px]">
-          <BsImage size={18} />
-          <span className="text-[16px] capitalize font-[500]">Add images</span>
-        </div>
-      </div> */}
     </div>
   );
 };

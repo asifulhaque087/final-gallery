@@ -4,7 +4,6 @@ export interface ISortablePhotoProps {
   index: number;
   faded?: boolean;
   style?: CSSProperties;
-  // selectPhotos?: (idx: number, isSelected: boolean) => void;
   selectPhotos?: (url: string, isSelected: boolean) => void;
   isSelected?: boolean;
 }

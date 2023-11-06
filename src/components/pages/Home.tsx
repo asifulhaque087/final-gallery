@@ -1,11 +1,10 @@
 'use client';
 
+// ** External imports
 import React, { useState } from 'react';
 import {
   DndContext,
   closestCenter,
-  MouseSensor,
-  TouchSensor,
   DragOverlay,
   useSensor,
   useSensors,
@@ -13,15 +12,14 @@ import {
   DragEndEvent,
   MeasuringStrategy,
   PointerSensor,
-  KeyboardSensor,
 } from '@dnd-kit/core';
 import {
   arrayMove,
   SortableContext,
   rectSortingStrategy,
-  sortableKeyboardCoordinates,
 } from '@dnd-kit/sortable';
 
+// ** Internal imports
 import photos from '@src/photos.json';
 import { Grid, Header, SortablePhoto } from '../compounds';
 import { Photo } from '../roots';
@@ -29,10 +27,7 @@ import { Photo } from '../roots';
 export const Home = () => {
   const [items, setItems] = useState(photos);
   const [activeId, setActiveId] = useState<string | null>(null);
-  // const [selectedIdxs, setSelectedIdxs] = useState<number[]>([]);
   const [selectedIdxs, setSelectedIdxs] = useState<string[]>([]);
-
-  // const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -63,7 +58,6 @@ export const Home = () => {
                 url={url}
                 index={index}
                 selectPhotos={selectPhotos}
-                // isSelected={selectedIdxs.includes(index)}
                 isSelected={selectedIdxs.includes(url)}
               />
             ))}
@@ -105,9 +99,7 @@ export const Home = () => {
     if (active.id !== over?.id) {
       setItems((items) => {
         const oldIndex = items.indexOf(active.id.toString());
-
         const newIndex = items.indexOf(over?.id.toString()!);
-
         return arrayMove(items, oldIndex, newIndex);
       });
     }
