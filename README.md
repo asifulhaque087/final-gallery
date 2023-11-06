@@ -5,8 +5,9 @@
 
 ## Tech Stacks
 
-- **Devlopment :** Next, Storybook, Tailwindcss, Typescirpt.
+- **Development :** Next, Storybook, Tailwindcss, Typescirpt.
 - **Testing :** Jest, React-testing-library.
+- **Coding Standard :** All recommended linting and rules for Next, Storybook, Jest using **Eslint** and **Prettier**.
 
 ## Functionality
 
@@ -21,4 +22,16 @@ To run the application locally, follow these steps:
    ```bash
    git clone https://github.com/asifulhaque087/final-gallery.git
    cd final-gallery
+   ```
+
+2. To run storybook:
+
+   ```bash
+   npm run storybook
+   ```
+
+3. To start development server:
+
+   ```bash
+   npm run dev
    ```
