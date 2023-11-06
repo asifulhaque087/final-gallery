@@ -38,6 +38,7 @@ export const Photo = forwardRef<HTMLDivElement, IPhotoProps>(
       >
         {/* <Image src={url} fill style={{ objectFit: 'cover' }} alt="product" /> */}
         <img
+          data-testid="photo-img"
           className="w-[100%]  h-[100%] object-cover object-center"
           alt="feature product"
           src={url}
@@ -66,6 +67,7 @@ export const Photo = forwardRef<HTMLDivElement, IPhotoProps>(
           > */}
 
           <div
+            data-testid="check-mark"
             className={`grid place-items-center text-white text-[10px] h-[20px] w-[20px] rounded ${
               isSelected ? 'bg-[#305df6]' : 'bg-white'
             }`}
