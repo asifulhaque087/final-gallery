@@ -5,7 +5,7 @@
 
 ## Tech Stacks
 
-- **Development :** Next, Storybook, Tailwindcss, Typescirpt.
+- **Development :** Next, Storybook, Tailwind Css, Typescript.
 - **Testing :** Jest, React-testing-library.
 - **Coding Standard :** All recommended linting and rules for Next, Storybook, Jest using **Eslint** and **Prettier**.
 
